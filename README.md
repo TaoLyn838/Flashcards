@@ -8,7 +8,7 @@ A simple flashcards App used for studing <strong>Hiragana</strong> and <strong>K
 
 ### App Walk-though
 
-<img src= "https://github.com/TaoLyn838/codepath-prework/blob/main/prework/App%20walk-though.gif" width="400" height="800"> <br>
+<img src= "https://github.com/TaoLyn838/Flashcards/blob/main/Flashcards.gif" width="400" height="800"> <br>
 ## Required
 - [x] Create New Project in Xcode
 - [x] Add a view for the front side of the flashcard to display the question
