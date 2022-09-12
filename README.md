@@ -3,7 +3,7 @@
 ## Lab 1
 
 ### App Description
-A simple flashcards App used for studing <strong>Hiragana</strong> and <strong>Katakana</strong>. 
+A simple flashcards App used for studying <strong>Hiragana</strong> and <strong>Katakana</strong>. 
 <br/>Users can either tap the flashcard to see the answer to a question or tap the choice button for a self-test. 
 
 ### App Walk-though
