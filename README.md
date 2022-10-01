@@ -5,6 +5,7 @@
 ### App Description
 A sample flashcards App used for studying <strong>Hiragana</strong> and <strong>Katakana</strong>. 
 <br/>Users can either tap the flashcard to see the answer to a question or tap the choice button for a self-test. 
+<br/>Moreover,uers can tap the 🍥 button for creating their own flashcards!
 
 ### App Walk-though
 
@@ -15,6 +16,6 @@ A sample flashcards App used for studying <strong>Hiragana</strong> and <strong>
 - [x] User can enter a new question and answer in the creation screen to then show it on the flashcard
 - [x] Push code to GitHub
 ## Optional
-- [ ] User gets an error if they try to create a new flashcard with no question or answer
+- [x] User gets an error if they try to create a new flashcard with no question or answer
 - [x] User can edit existing flashcard
 - [x] User can add multiple choice answers in the creation screen

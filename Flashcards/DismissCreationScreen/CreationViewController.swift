@@ -17,8 +17,8 @@ class CreationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        flashcaardsController.resetMainUI()
     }
     
 
@@ -33,17 +33,15 @@ class CreationViewController: UIViewController {
         let opA = option1.text
         let opB = option2.text
         let opC = option3.text
-        
-        let ac = UIAlertController(title: "Missing text", message: "You need to enter both a question and an answer", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default))
-        present(ac, animated: true)
-        
-        flashcaardsController.updateFlashcard(question: questionText!, opA: opA!, opB: opB!, opC: opC!)
-        
-        dismiss(animated: true)
-        
+        if (opA?.count == 0) || (opB?.count == 0) || (opC?.count == 0) {
+            let ac = UIAlertController(title: "Missing text", message: "You need to enter both a question and an answers", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "OK", style: .default))
+            present(ac, animated: true)
+        } else {
+            flashcaardsController.updateFlashcard(question: questionText!, opA: opA!, opB: opB!, opC: opC!)
+            dismiss(animated: true)
+        }
     }
-    
     
     /*
     // MARK: - Navigation
