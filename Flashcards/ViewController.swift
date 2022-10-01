@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     
     var toggle = true;
     
+    // Lab2
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -45,14 +47,37 @@ class ViewController: UIViewController {
         toggle = !toggle
     }
     
+    func updateFlashcard(question: String, opA: String, opB: String, opC: String) {
+        
+        frontLabel.text = question
+        backLabel.text = opA
+        choice_a.setTitle(opA, for: .normal)
+        choice_b.setTitle(opB, for: .normal)
+        choice_c.setTitle(opC, for: .normal)
+    }
+    
+    func isEmptyOptions(action: UIAlertAction! = nil,question: String, opA: String, opB: String, opC: String) {
+        
+    }
+        
+    
     @IBAction func TapChoiceButton(_ sender: UIButton) {
         if backLabel.tag == sender.tag {
             frontLabel.isHidden = true
             sender.backgroundColor = UIColor.systemTeal
             backLabel.backgroundColor = UIColor.systemTeal
             backLabel.textColor = UIColor.white
+            
         } else {
             sender.backgroundColor = UIColor.red
         }
+    }
+    
+    
+    // Making it not crash!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let creationController = navigationController.topViewController as! CreationViewController
+        creationController.flashcaardsController = self
     }
 }
