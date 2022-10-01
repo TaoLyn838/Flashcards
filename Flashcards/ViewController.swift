@@ -70,7 +70,6 @@ class ViewController: UIViewController {
         }
         frontLabel.isHidden = toggle;
         toggle = !toggle
-        print(toggle)
     }
     
     func updateFlashcard(question: String, opA: String, opB: String, opC: String) {
