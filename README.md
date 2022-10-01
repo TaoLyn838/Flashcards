@@ -9,7 +9,7 @@ A sample flashcards App used for studying <strong>Hiragana</strong> and <strong>
 
 ### App Walk-though
 
-<img src= "https://github.com/TaoLyn838/Flashcards/blob/main/Flashcards.gif" width="400" height="800"> <br>
+<img src= "" width="400" height="800"> <br>
 ## Required
 - [x] User can open the creation screen
 - [x] User can cancel out of the creation screen
