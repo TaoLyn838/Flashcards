@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
-        fliped()
+        flipped()
     }
         
     @IBAction func TapChoiceButton(_ sender: UIButton) {
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         creationController.flashcaardsController = self
     }
     
-    private func fliped () {
+    private func flipped () {
         if backLabel.backgroundColor != DefaultBackgroundCol {
             backLabel.backgroundColor = DefaultBackgroundCol
         }
@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         choice_b.backgroundColor = DefButtonCol
         choice_c.backgroundColor = DefButtonCol
         if toggle == false {
-            fliped()
+            flipped()
         }
     }
 }
