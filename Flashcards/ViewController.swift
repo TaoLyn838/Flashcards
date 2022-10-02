@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var choice_c: UIButton!
     let DefaultBackgroundCol = UIColor.white
     let DefaultTextCol = UIColor.black
-    var toggle = true;
+    private var toggle = true;
     
     // Lab2
     var DefButtonCol: UIColor!
@@ -61,7 +61,7 @@ class ViewController: UIViewController {
         creationController.flashcaardsController = self
     }
     
-    func fliped () {
+    private func fliped () {
         if backLabel.backgroundColor != DefaultBackgroundCol {
             backLabel.backgroundColor = DefaultBackgroundCol
         }
