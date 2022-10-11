@@ -39,6 +39,7 @@ class CreationViewController: UIViewController {
             present(ac, animated: true)
         } else {
             flashcaardsController.updateFlashcard(question: questionText!, opA: opA!, opB: opB!, opC: opC!)
+            flashcaardsController.saveAllFlashcardsToDisk()
             dismiss(animated: true)
         }
     }
