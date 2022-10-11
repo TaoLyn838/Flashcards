@@ -34,7 +34,7 @@ A sample flashcards App used for studying and memory information. Users can eith
 
 ### App Walk-though
 
-<img src="https://github.com/TaoLyn838/Flashcards/blob/main/FlashcardGIF/Flashcard_Lab3.gif" width=200><br>
+<img src="https://github.com/TaoLyn838/Flashcards/blob/main/FlashcardGIF/Flashcard_Lab3.gif" width="400" height="800"><br>
 
 ## Required
 
