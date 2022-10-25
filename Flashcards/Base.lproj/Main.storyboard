@@ -144,9 +144,12 @@
                         <outlet property="choice_a" destination="4Wn-lp-BXv" id="gV1-oO-2NG"/>
                         <outlet property="choice_b" destination="YmV-bL-kdm" id="Hdo-AS-2Wj"/>
                         <outlet property="choice_c" destination="PYt-6x-QSD" id="Nug-Q0-QDV"/>
+                        <outlet property="createCard" destination="MnU-wj-g1O" id="GJq-FH-XOB"/>
                         <outlet property="frontLabel" destination="vVf-PO-Mmb" id="MPQ-6K-bj3"/>
                         <outlet property="nextButton" destination="fXA-zK-DBD" id="BDc-sq-NJ0"/>
+                        <outlet property="nextCard" destination="fXA-zK-DBD" id="NK9-Ld-AwI"/>
                         <outlet property="prevButton" destination="uvO-Th-nD3" id="Zl8-4O-h1s"/>
+                        <outlet property="prevCard" destination="uvO-Th-nD3" id="RZs-bl-i6N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

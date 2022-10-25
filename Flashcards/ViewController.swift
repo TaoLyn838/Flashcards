@@ -24,6 +24,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var choice_a: UIButton!
     @IBOutlet weak var choice_b: UIButton!
     @IBOutlet weak var choice_c: UIButton!
+    @IBOutlet weak var nextCard: UIButton!
+    @IBOutlet weak var prevCard: UIButton!
+    @IBOutlet weak var createCard: UIButton!
+    
     let DefaultBackgroundCol = UIColor.white
     let DefaultTextCol = UIColor.black
     private var toggle = true
@@ -46,12 +50,17 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //Rounded and shadow Label and Button
+        //Rounded and shadow Label and Button and UIView
         designLabel(label: frontLabel)
         designLabel(label: backLabel)
         designButton(botton: choice_a)
         designButton(botton: choice_b)
         designButton(botton: choice_c)
+        designButton(botton: prevButton)
+        designButton(botton: nextButton)
+        designButton(botton: createCard)
+        designUIView(Container: card)
+        
         DefButtonCol = choice_a.backgroundColor
         
         UIView.animate(withDuration: 0.2, animations: { () -> Void in
@@ -170,6 +179,15 @@ class ViewController: UIViewController {
         label.layer.cornerRadius = 20
     }
     
+    func designUIView(Container: UIView) {
+        Container.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        Container.layer.shadowOpacity = 1.0
+        Container.layer.shadowRadius = 0.0
+        Container.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        Container.layer.masksToBounds = false
+        Container.layer.cornerRadius = 20
+    }
+    
     /*
      ***********************************************************
                             Animation
@@ -257,7 +275,7 @@ class ViewController: UIViewController {
     
     /*
      ***********************************************************
-                            Data controllor
+                            Data controller
      ***********************************************************
     */
     func saveAllFlashcardsToDisk() {

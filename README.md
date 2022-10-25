@@ -63,7 +63,7 @@ A sample flashcards App used for studying and memory information. Users can eith
 
 
 ### App Walk-though
-<img src="https://github.com/TaoLyn838/Flashcards/blob/main/FlashcardGIF/Flashcard_Lab4.gif" width="400" height="800"><br>
+<img src="https://github.com/TaoLyn838/Flashcards/blob/main/FlashcardGIF/Flashcard_Lab4(2).gif" width="400" height="800"><br>
 
 ## Required
 - [x] User should see the app icon 
