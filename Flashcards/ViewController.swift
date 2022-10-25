@@ -257,7 +257,7 @@ class ViewController: UIViewController {
     
     /*
      ***********************************************************
-                            Data controllor
+                            Data controller
      ***********************************************************
     */
     func saveAllFlashcardsToDisk() {
