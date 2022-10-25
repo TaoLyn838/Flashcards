@@ -15,17 +15,19 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var option2: UITextField!
     @IBOutlet weak var option3: UITextField!
     
+    private var canEdit = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         flashcaardsController.resetMainUI()
+        canEdit = flashcaardsController.canEdit
     }
     
 
     @IBAction func didTapOnCancel(_ sender: Any) {
         dismiss(animated: true)
     }
-    
     
     @IBAction func didTapOnDone(_ sender: Any) {
         
@@ -38,11 +40,12 @@ class CreationViewController: UIViewController {
             ac.addAction(UIAlertAction(title: "OK", style: .default))
             present(ac, animated: true)
         } else {
-            flashcaardsController.updateFlashcard(question: questionText!, opA: opA!, opB: opB!, opC: opC!)
-            flashcaardsController.saveAllFlashcardsToDisk()
+            flashcaardsController.updateFlashcard(question: questionText!, opA: opA!, opB: opB!, opC: opC!, isEdit: canEdit)
+                flashcaardsController.saveAllFlashcardsToDisk()
             dismiss(animated: true)
         }
     }
+    
     
     /*
     // MARK: - Navigation

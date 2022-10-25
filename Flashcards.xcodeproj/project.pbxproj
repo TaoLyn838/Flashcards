@@ -16,6 +16,7 @@
 		3476B64028CE9BE300CF8FC5 /* FlashcardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B63F28CE9BE300CF8FC5 /* FlashcardsTests.swift */; };
 		3476B64A28CE9BE300CF8FC5 /* FlashcardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B64928CE9BE300CF8FC5 /* FlashcardsUITests.swift */; };
 		3476B64C28CE9BE300CF8FC5 /* FlashcardsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3476B64B28CE9BE300CF8FC5 /* FlashcardsUITestsLaunchTests.swift */; };
+		42208C7D28FF8B5F0016A5CC /* QuickNotes-logos in Resources */ = {isa = PBXBuildFile; fileRef = 42208C7C28FF8B5F0016A5CC /* QuickNotes-logos */; };
 		42E03D6928E3E4C10008519B /* CreationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E03D6828E3E4C10008519B /* CreationViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		3476B64528CE9BE300CF8FC5 /* FlashcardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlashcardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3476B64928CE9BE300CF8FC5 /* FlashcardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITests.swift; sourceTree = "<group>"; };
 		3476B64B28CE9BE300CF8FC5 /* FlashcardsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		42208C7C28FF8B5F0016A5CC /* QuickNotes-logos */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "QuickNotes-logos"; path = "../../../../Downloads/FirefoxDownLoad/QuickNotes-logos"; sourceTree = "<group>"; };
 		42E03D6828E3E4C10008519B /* CreationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CreationViewController.swift; path = Flashcards/DismissCreationScreen/CreationViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +109,7 @@
 				3476B62C28CE9BE100CF8FC5 /* ViewController.swift */,
 				3476B62E28CE9BE100CF8FC5 /* Main.storyboard */,
 				3476B63128CE9BE300CF8FC5 /* Assets.xcassets */,
+				42208C7C28FF8B5F0016A5CC /* QuickNotes-logos */,
 				3476B63328CE9BE300CF8FC5 /* LaunchScreen.storyboard */,
 				3476B63628CE9BE300CF8FC5 /* Info.plist */,
 			);
@@ -237,6 +240,7 @@
 				3476B63528CE9BE300CF8FC5 /* LaunchScreen.storyboard in Resources */,
 				3476B63228CE9BE300CF8FC5 /* Assets.xcassets in Resources */,
 				3476B63028CE9BE100CF8FC5 /* Main.storyboard in Resources */,
+				42208C7D28FF8B5F0016A5CC /* QuickNotes-logos in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

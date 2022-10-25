@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6t-On-zgk">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6t-On-zgk" userLabel="Container">
                                 <rect key="frame" x="0.0" y="156" width="414" height="219"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -38,6 +38,25 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZK-B3-twD" userLabel="delete Card">
+                                        <rect key="frame" x="359" y="3" width="42" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icons-delete4-42"/>
+                                        <connections>
+                                            <action selector="didTapOnDelete:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AUQ-cv-6am"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ff7-2s-lIz" userLabel="edit Card">
+                                        <rect key="frame" x="359" y="163" width="52" height="52"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="icons-edit_52"/>
+                                        <connections>
+                                            <action selector="didTapOnEdit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SiY-vt-5qd"/>
+                                            <segue destination="wJg-Lb-all" kind="presentation" id="OZd-Z6-w0u"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemTealColor"/>
                                 <gestureRecognizers/>
@@ -64,7 +83,7 @@
                                 <color key="backgroundColor" red="0.96841138599999999" green="0.72629837070000003" blue="0.22734229959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="カ">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="31"/>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="32"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -84,34 +103,33 @@
                                     <action selector="TapChoiceButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sga-T4-p0d"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnU-wj-g1O">
-                                <rect key="frame" x="176" y="790" width="62" height="56"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnU-wj-g1O" userLabel="Add Card">
+                                <rect key="frame" x="178" y="785" width="58" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="🍥"/>
+                                <state key="normal" image="PlusButton"/>
                                 <connections>
                                     <segue destination="wJg-Lb-all" kind="presentation" id="vgz-fd-fud"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXA-zK-DBD">
-                                <rect key="frame" x="339" y="794" width="55" height="50"/>
+                                <rect key="frame" x="336" y="785" width="58" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Next">
-                                    <imageReference key="backgroundImage" image="arrowshape.right.fill" catalog="system" symbolScale="default"/>
+                                <state key="normal">
+                                    <imageReference key="backgroundImage" image="arrowR2" symbolScale="default"/>
                                 </state>
                                 <connections>
                                     <action selector="didTapOnNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yya-5h-7sE"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-Th-nD3">
-                                <rect key="frame" x="20" y="794" width="55" height="50"/>
+                                <rect key="frame" x="20" y="785" width="58" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemTealColor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Prev" backgroundImage="arrowshape.left.fill" catalog="system"/>
+                                <state key="normal" backgroundImage="arrowL2"/>
                                 <connections>
                                     <action selector="didTapOnPrev:" destination="BYZ-38-t0r" eventType="touchUpInside" id="upe-ZD-0ew"/>
                                 </connections>
@@ -122,6 +140,7 @@
                     </view>
                     <connections>
                         <outlet property="backLabel" destination="bgB-xL-pIe" id="mLB-B5-iWN"/>
+                        <outlet property="card" destination="B6t-On-zgk" id="Ths-fm-9Bt"/>
                         <outlet property="choice_a" destination="4Wn-lp-BXv" id="gV1-oO-2NG"/>
                         <outlet property="choice_b" destination="YmV-bL-kdm" id="Hdo-AS-2Wj"/>
                         <outlet property="choice_c" destination="PYt-6x-QSD" id="Nug-Q0-QDV"/>
@@ -142,7 +161,7 @@
         <!--Creation View Controller-->
         <scene sceneID="6NB-Ui-xfe">
             <objects>
-                <viewController id="WX9-LS-gy8" customClass="CreationViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Creation_VC" id="WX9-LS-gy8" customClass="CreationViewController" customModule="Flashcards" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u66-jf-ey7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,9 +238,15 @@
             <point key="canvasLocation" x="921.73913043478262" y="68.973214285714278"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OZd-Z6-w0u"/>
+    </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
-        <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
+        <image name="PlusButton" width="100" height="100"/>
+        <image name="arrowL2" width="100" height="100"/>
+        <image name="arrowR2" width="100" height="100"/>
+        <image name="icons-delete4-42" width="42" height="42"/>
+        <image name="icons-edit_52" width="52" height="52"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -16,15 +16,18 @@ struct Flashcard {
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var card: UIView!
     @IBOutlet weak var frontLabel: UILabel!
     @IBOutlet weak var backLabel: UILabel!
+    
     
     @IBOutlet weak var choice_a: UIButton!
     @IBOutlet weak var choice_b: UIButton!
     @IBOutlet weak var choice_c: UIButton!
     let DefaultBackgroundCol = UIColor.white
     let DefaultTextCol = UIColor.black
-    private var toggle = true;
+    private var toggle = true
+    var canEdit = false
     
     // Array to hold our flashcards
     var flashcards = [Flashcard]()
@@ -43,24 +46,42 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        //Rounded Button
-        choice_a.layer.cornerRadius = 20
-        choice_a.layer.masksToBounds = true
-        choice_b.layer.cornerRadius = 20
-        choice_b.layer.masksToBounds = true
-        choice_c.layer.cornerRadius = 20
-        choice_c.layer.masksToBounds = true
+        //Rounded and shadow Label and Button
+        designLabel(label: frontLabel)
+        designLabel(label: backLabel)
+        designButton(botton: choice_a)
+        designButton(botton: choice_b)
+        designButton(botton: choice_c)
         DefButtonCol = choice_a.backgroundColor
+        
+        UIView.animate(withDuration: 0.2, animations: { () -> Void in
+            self.card.transform = .init(scaleX: 1.25, y: 1.25)
+        }) { (finished: Bool) -> Void in
+            UIView.animate(withDuration: 0.25, animations: { () -> Void in
+                self.card.transform = .identity
+            })
+        }
         
         readSavedFlashcards()
         
         if flashcards.count == 0 {
-            updateFlashcard(question: "What is the Katakana of お?", opA: "オ", opB: "カ", opC: "二")
+            updateFlashcard(question: "What is the Katakana of お?",
+                            opA: "オ",
+                            opB: "カ",
+                            opC: "二",
+                            isEdit: false
+            )
         } else {
             updateLabels()
             updateNextPrevButtons()
         }
     }
+    
+    /*
+     ***********************************************************
+                            UI
+     ***********************************************************
+    */
     
     @IBAction func didTapOnFlashcard(_ sender: Any) {
         flipped()
@@ -76,33 +97,40 @@ class ViewController: UIViewController {
         } else {
             sender.backgroundColor = UIColor.red
         }
+        print(backLabel.tag)
+        print(sender.tag)
     }
     
     
     @IBAction func didTapOnNext(_ sender: Any) {
         currentIndex += 1
         
-        updateLabels()
-        
+        //updateLabels()
+        animateCardOut(duration: 0.4, hori: -400.0, vert: 0.0)
+        resetMainUI ()
         updateNextPrevButtons()
     }
     
     @IBAction func didTapOnPrev(_ sender: Any) {
         currentIndex -= 1
         
-        updateLabels()
-        
+        animateCardOut(duration: 0.4, hori: 400.0, vert: 0.0)
+        resetMainUI ()
         updateNextPrevButtons()
     }
     
     
-    
-    // Making it not crash!
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navigationController = segue.destination as! UINavigationController
-        let creationController = navigationController.topViewController as! CreationViewController
-        creationController.flashcaardsController = self
+    @IBAction func didTapOnDelete(_ sender: Any) {
+        deleteCard()
+        print(flashcards.count)
+        
     }
+    
+    @IBAction func didTapOnEdit(_ sender: Any) {
+//        let creationController = storyboard?.instantiateViewController(withIdentifier: "Creation_VC") as! CreationViewController
+        canEdit = true
+    }
+        
     
     private func flipped () {
         if backLabel.backgroundColor != DefaultBackgroundCol {
@@ -111,26 +139,8 @@ class ViewController: UIViewController {
         if backLabel.textColor != DefaultTextCol {
             backLabel.textColor = DefaultTextCol
         }
-        frontLabel.isHidden = toggle;
+        labelAnimationController();
         toggle = !toggle
-    }
-    
-    func updateFlashcard(question: String, opA: String, opB: String, opC: String) {
-        let flashcard = Flashcard(question: question, answer: opA, optionA: opB, optionB: opC)
-        
-        flashcards.append(flashcard)
-        
-        print("we now have \(flashcards.count) flashcard")
-        
-        // update fashcard current index
-        currentIndex = flashcards.count - 1
-        
-        //update buttons
-        updateNextPrevButtons()
-        
-        updateLabels()
-        
-        print(flashcards)
     }
     
     func resetMainUI () {
@@ -141,6 +151,93 @@ class ViewController: UIViewController {
             flipped()
         }
     }
+    
+    func designButton(botton: UIButton) {
+        botton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        botton.layer.shadowOpacity = 1.0
+        botton.layer.shadowRadius = 0.0
+        botton.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+        botton.layer.masksToBounds = false
+        botton.layer.cornerRadius = 20
+    }
+    
+    func designLabel(label: UILabel) {
+        label.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        label.layer.shadowOpacity = 1.0
+        label.layer.shadowRadius = 0.0
+        label.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        label.layer.masksToBounds = false
+        label.layer.cornerRadius = 20
+    }
+    
+    /*
+     ***********************************************************
+                            Animation
+     ***********************************************************
+    */
+    
+    //Label flip right animation
+    private func labelAnimationController() {
+        UIView.transition(with: card, duration: 0.4, options: .transitionFlipFromRight, animations: {self.frontLabel.isHidden = self.toggle})
+    }
+    
+    func animateCardOut(duration: TimeInterval, hori: CGFloat, vert: CGFloat) {
+        UIView.animate(
+            withDuration: duration,
+            animations: {
+                self.card.transform = CGAffineTransform.identity.translatedBy(x: hori, y: vert)
+            },
+            completion: {
+                finished in
+                self.updateLabels()
+                self.animateCardIn(duration: duration, hori: hori, vert: vert)
+            }
+        )}
+    
+    func animateCardIn(duration: TimeInterval, hori: CGFloat, vert: CGFloat) {
+
+        card.transform = CGAffineTransform.identity.translatedBy(x: -hori, y: vert)
+    
+        UIView.animate(withDuration: duration) {
+            self.card.transform = CGAffineTransform.identity
+        }
+    }
+    
+    
+    /*
+     ***********************************************************
+                            Update
+     ***********************************************************
+    */
+    
+    func updateFlashcard(question: String, opA: String, opB: String, opC: String, isEdit: Bool) {
+        if (isEdit) {
+            flashcards[currentIndex].question = question
+            flashcards[currentIndex].answer = opA
+            flashcards[currentIndex].optionA = opB
+            flashcards[currentIndex].optionB = opC
+            updateLabels()
+            
+            canEdit = false
+            
+        } else {
+            let flashcard = Flashcard(question: question, answer: opA, optionA: opB, optionB: opC)
+            flashcards.append(flashcard)
+            
+            // print("we now have \(flashcards.count) flashcard")
+            
+            // update fashcard current index
+            currentIndex = flashcards.count - 1
+            
+            //update buttons
+            updateNextPrevButtons()
+            
+            updateLabels()
+        }
+        
+        print(flashcards)
+    }
+    
     
     private func updateNextPrevButtons() {
         currentIndex == flashcards.count - 1 ? (nextButton.isEnabled = false) : (nextButton.isEnabled = true)
@@ -158,6 +255,11 @@ class ViewController: UIViewController {
         choice_c.setTitle(currentFlashcard.optionB, for: .normal)
     }
     
+    /*
+     ***********************************************************
+                            Data controllor
+     ***********************************************************
+    */
     func saveAllFlashcardsToDisk() {
         let dictionaryArray = flashcards.map{(card) -> [String: String] in return ["question": card.question, "answer": card.answer, "optionA": card.optionA, "optionB": card.optionB]}
         
@@ -174,4 +276,55 @@ class ViewController: UIViewController {
         }
     }
     
+    func deleteCard() {
+        let ac = UIAlertController(title: "Delete Flashcard", message: "Are you sure you want to delete this flashcard?", preferredStyle: .alert)
+        let delAc = UIAlertAction(title: "Yes", style: .cancel) {action in self.toDelete()}
+        let undoAc = UIAlertAction(title: "Undo", style: .destructive)
+        
+        ac.addAction(undoAc)
+        ac.addAction(delAc)
+        
+        present(ac, animated: true)
+    }
+    
+    // deleteCard helper
+    private func toDelete() {
+        if flashcards.count == 1 {
+            let ac = UIAlertController(title: "😅", message: "Cannot delete this flashcard because currently only has \(flashcards.count) flashcard.", preferredStyle: .alert)
+            let undoAc = UIAlertAction(title: "back", style: .default)
+            
+            ac.addAction(undoAc)
+            
+            present(ac, animated: true)
+            return
+        }
+        
+        flashcards.remove(at: currentIndex)
+        
+        if currentIndex > flashcards.count - 1 {
+            currentIndex = flashcards.count - 1
+        }
+        
+        updateNextPrevButtons()
+                
+        updateLabels()
+                
+        saveAllFlashcardsToDisk()
+    }
+    
+    
+    
+    
+    /*
+     ***********************************************************
+                            Others
+     ***********************************************************
+    */
+    
+    // Making it not crash!
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navigationController = segue.destination as! UINavigationController
+        let creationController = navigationController.topViewController as! CreationViewController
+        creationController.flashcaardsController = self
+    }
 }
