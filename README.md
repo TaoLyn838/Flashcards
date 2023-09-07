@@ -1,6 +1,6 @@
 ## FLashcards
 
-## Lab 2
+## Version 2
 
 ### App Description
 A sample flashcards App used for studying <strong>Hiragana</strong> and <strong>Katakana</strong>. 
@@ -21,7 +21,7 @@ A sample flashcards App used for studying <strong>Hiragana</strong> and <strong>
 - [x] User can add multiple choice answers in the creation screen
 
 
-## Lab 3
+## Version 3
 
 ### App Description
 
@@ -52,7 +52,7 @@ A sample flashcards App used for studying and memory information. Users can eith
 
 - [x] User can store multiple choice questions
 
-## Lab 4
+## Version 4
 
 ### App Description
 A sample flashcards App used for studying and memory information. Users can either tap the flashcard to see the answer to a question or tap the choice button for a self-test.
